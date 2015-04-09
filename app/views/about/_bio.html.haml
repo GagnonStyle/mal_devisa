@@ -1,0 +1,30 @@
+.subtitle
+  BIO
+  .icons
+    .bio_init_edit
+      =image_tag 'edit18.png', :style => 'cursor:pointer'
+    .bio_cancel_edit{:style => 'display:none'}
+      =image_tag 'close24.png', :style => 'cursor:pointer'
+.bio_text
+  =@bio.text
+.edit_bio_text{:style => 'display:none'}
+  =form_for(@bio, remote: true) do |f|
+    =f.text_area :text, {:style => 'width:100%;height:150px;resize:vertical'}
+    =f.submit
+
+
+:javascript
+  $('.bio_init_edit').click(function(){
+    $('.bio_text').hide();
+    $('.bio_init_edit').hide();
+    $('.bio_cancel_edit').show();
+    $('.edit_bio_text').show();
+  });
+  $('.bio_cancel_edit').click(function(){
+    $('.bio_text').show();
+    $('.bio_init_edit').show();
+    $('.bio_cancel_edit').hide();
+    $('.edit_bio_text').hide();
+    $('form.edit_bio')[0].reset(); //reset the form
+  });
+

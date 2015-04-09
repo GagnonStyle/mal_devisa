@@ -1,0 +1,31 @@
+.subtitle
+  PRESS
+  .icons
+    .press_init_add
+      =image_tag 'add24.png', :style => 'cursor:pointer'
+    .press_cancel_add{:style => 'display:none'}
+      =image_tag 'close24.png', :style => 'cursor:pointer'
+.press_add_form{:style => 'display:none'}
+  =form_for Press.new, remote: true do |f|
+    =f.text_field :name, :placeholder => 'Title'
+    =f.text_field :link, :placeholder => 'Place HTTP Link Here', :style => 'width:75%'
+    =f.submit 'Add Press'
+.press_text
+  -@presses.each do |press|
+    .press_title
+      =press.name
+    .press_link
+      %a{:href => press.link}
+        =press.link
+
+:javascript
+  $('.press_init_add').click(function(){
+    $('.press_add_form').show();
+    $('.press_init_add').hide();
+    $('.press_cancel_add').show();
+  });
+  $('.press_cancel_add').click(function(){
+    $('.press_add_form').hide();
+    $('.press_cancel_add').hide();
+    $('.press_init_add').show();
+  });

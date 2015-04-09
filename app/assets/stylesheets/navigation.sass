@@ -1,0 +1,57 @@
+.social_bar
+  width: 100%
+  height: 50px
+  background: black
+  position: relative
+  top: 0
+  .social_link
+    position: relative
+    color: lightgray
+    padding: 9px 9px
+    line-height: 20px
+    height: 50px
+    float: right
+    transition: background 100ms
+  .social_link:hover
+    background: orange
+    color: black
+    text-decoration: none
+    transition: background 100ms
+  .social_link:hover + .social_tooltip
+    opacity: 1
+    transition: opacity 100ms
+  .social_tooltip
+    opacity: 0
+    cursor: default
+    transition: opacity 100ms
+    position: absolute
+    bottom: -25px
+    right: 4px
+    background: grey
+    border-radius: 2px
+    color: white
+    padding: 1px 5px
+    font-weight: bold
+
+.title_and_nav
+  width: 70%
+  min-width: 500px
+  position: relative
+  left: 50%
+  right: 50%
+  transform: translate(-50%)
+
+.title
+  font-size: 50px
+  text-align: center
+
+.nav_menu
+  border: 2px solid black
+  height: 75px
+  text-align: center
+  line-height: 70px
+  a
+    color: black
+    padding: 0 5px
+    font-size: 18px
+
