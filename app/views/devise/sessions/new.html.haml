@@ -1,0 +1,16 @@
+%h2
+  Admin Login
+%p.alert
+  =alert
+
+=form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    =f.text_field :username, autofocus: true, placeholder: 'Username'
+
+  .field
+    =f.password_field :password, autocomplete: 'off', placeholder: 'Password'
+
+  .actions
+    = f.submit 'Log in'
+
+

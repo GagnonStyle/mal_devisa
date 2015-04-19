@@ -17,6 +17,7 @@ gem 'high_voltage'
 gem 'mysql2'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
+gem 'devise'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

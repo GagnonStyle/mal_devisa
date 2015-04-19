@@ -1,4 +1,7 @@
 .social_bar
+  -if current_admin
+    .logout_link
+      =link_to 'LOG OUT', destroy_admin_session_path, :method => :delete
   .social_link
     = link_to image_tag('instagram32.png'), 'https://instagram.com/maldevisa/'
   .social_tooltip
