@@ -14,7 +14,7 @@ group :development, :test do
 end
 gem 'haml-rails'
 gem 'high_voltage'
-gem 'mysql2'
+gem 'sqlite3'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'devise'
