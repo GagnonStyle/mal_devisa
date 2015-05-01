@@ -3,9 +3,9 @@
   -if current_admin
     .icons
       .press_init_add
-        =image_tag 'add24.png', :style => 'cursor:pointer'
+        =image_tag 'plus24.png', :style => 'cursor:pointer'
       .press_cancel_add{:style => 'display:none'}
-        =image_tag 'close24.png', :style => 'cursor:pointer'
+        =image_tag 'cross24.png', :style => 'cursor:pointer'
 -if current_admin
   .press_add_form{:style => 'display:none'}
     =form_for Press.new, remote: true do |f|
@@ -14,11 +14,8 @@
       =f.submit 'Add Press'
 .press_text
   -@presses.each do |press|
-    .press_title
-      =press.name
-    .press_link
-      %a{:href => press.link}
-        =press.link
+    =render :partial => 'about/press_instance', :locals => {:press => press}
+
 -if current_admin
   :javascript
     $('.press_init_add').click(function(){
