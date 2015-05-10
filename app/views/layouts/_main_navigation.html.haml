@@ -2,8 +2,12 @@
   .title
     MAL DEVISA
   .nav_menu
-    =link_to 'Home', root_path
-    =link_to 'About/Press', about_show_path
-    =link_to 'Music/Video', music_show_path
-    =link_to 'Gallery', gallery_index_path
-    =link_to 'Contact', contact_show_path
+    =link_to 'Home', root_path,:remote => true
+    =link_to 'About/Press', about_show_path, :remote => true
+    =link_to 'Music/Video', video_show_path, :remote => true
+    =link_to 'Gallery', gallery_index_path, :remote => true
+    =link_to 'Contact', contact_show_path, :remote => true
+    :javascript
+      $('.nav_menu').find('a').click(function(){
+        pushToHistory($(this).attr('href'));
+      })

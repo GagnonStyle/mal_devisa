@@ -10,7 +10,7 @@
   .press_add_form{:style => 'display:none'}
     =form_for Press.new, remote: true do |f|
       =f.text_field :name, :placeholder => 'Title'
-      =f.text_field :link, :placeholder => 'Place HTTP Link Here', :style => 'width:75%'
+      =f.text_field :url, :placeholder => 'Place HTTP Link Here', :style => 'width:75%'
       =f.submit 'Add Press'
 .press_text
   -@presses.each do |press|

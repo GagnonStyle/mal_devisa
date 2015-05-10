@@ -6,8 +6,8 @@
   =press.name
 
 .press_link
-  %a{:href => press.link}
-    =press.link
+  %a{:href => press.url}
+    =press.url
 
 :javascript
   $(".delete_#{press.id}").click(function(){

@@ -18,6 +18,7 @@ gem 'sqlite3'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'devise'
+gem 'youtube_addy'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

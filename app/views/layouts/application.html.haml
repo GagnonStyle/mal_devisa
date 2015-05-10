@@ -11,5 +11,7 @@
     %header
       = render 'layouts/social_bar'
       = render 'layouts/main_navigation'
+      :javascript
+        setupPopListener();
     %main{:role => 'main'}
       = yield

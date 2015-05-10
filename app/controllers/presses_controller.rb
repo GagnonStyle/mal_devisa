@@ -19,6 +19,6 @@ class PressesController < ApplicationController
 
   private
   def press_params
-    params.require(:press).permit(:name, :link)
+    params.require(:press).permit(:name, :url)
   end
 end
