@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, :path => '',
              :path_names => {:sign_in => 'admin_login'}
 
-  get 'video/show'
+  get 'videos/show'
 
   get 'about/show'
 

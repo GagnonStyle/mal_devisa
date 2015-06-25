@@ -1,0 +1,6 @@
+%h1 Videos
+.video_grid
+  -@videos.each do |video|
+    .video{:id => "video_#{video.id}"}
+      =YouTubeAddy.youtube_embed_url(video.url).html_safe
+
