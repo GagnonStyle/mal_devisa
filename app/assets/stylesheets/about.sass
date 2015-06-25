@@ -2,18 +2,25 @@
   position: relative
   float: left
   width: 48%
-  padding-bottom: 32px
+  padding-bottom: 2em
+
 .press
   position: relative
   float: right
   width: 48%
-  padding-bottom: 32px
+  padding-bottom: 2em
+
+.bio, .press
+  @media screen and (max-width: 500px)
+    width: 100%
+    float: none
+
 .subtitle
-  height: 48px
+  height: 3em
 .icons
   display: inline-block
   position: absolute
-  margin-left: 10px
+  margin-left: 0.625em
   margin-top: 1px
 
 .bio_text, .press_text
@@ -21,17 +28,16 @@
 .press_title
   font-weight: bold
   img
-    height: 18px
-    position: absolute
-    left: -20px
+    height: 1.125em
 .press_link
-  margin-bottom: 10px
+  margin-bottom: 0.625em
+  word-wrap: break-word
 .press_add_form
   text-align: left
-  margin-bottom: 10px
+  margin-bottom: 0.625em
   input
     display: block
-    margin: 4px 0
+    margin: 0.25em 0
 
 
 
