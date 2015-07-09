@@ -1,0 +1,44 @@
+.subtitle
+  VIDEOS
+  -if current_admin
+    .icons
+      .video_init_add
+        =image_tag 'plus24.png', :style => 'cursor:pointer'
+      .video_cancel_add{:style => 'display:none'}
+        =image_tag 'cross24.png', :style => 'cursor:pointer'
+-if current_admin
+  .video_add_form{:style => 'display:none'}
+    =form_for Video.new, remote: true do |f|
+      =f.text_field :name, :placeholder => 'Title'
+      =f.text_field :url, :placeholder => 'Paste Youtube URL Here'
+      =f.submit 'Add Video'
+.video_grid
+  -@videos.each do |video|
+    .video{:id => "video_#{video.id}"}
+      -if current_admin
+        =image_tag 'cross24.png',
+                   :class => "delete_#{video.id}",
+                   :style => 'cursor:pointer'
+      =YouTubeAddy.youtube_embed_url(video.url).html_safe
+      :javascript
+        $(".delete_#{video.id}").click(function(){
+          if(confirm("Are you sure you want to delete this Video?")){
+            $.ajax({
+              url: "#{video_path(video.id)}",
+              type: "delete",
+              dataType: "script"
+            });
+          }
+        });
+-if current_admin
+  :javascript
+    $('.video_init_add').click(function(){
+      $('.video_add_form').show();
+      $('.video_init_add').hide();
+      $('.video_cancel_add').show();
+    });
+    $('.video_cancel_add').click(function(){
+      $('.video_add_form').hide();
+      $('.video_cancel_add').hide();
+      $('.video_init_add').show();
+    });

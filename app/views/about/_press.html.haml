@@ -10,12 +10,31 @@
   .press_add_form{:style => 'display:none'}
     =form_for Press.new, remote: true do |f|
       =f.text_field :name, :placeholder => 'Title'
-      =f.text_field :url, :placeholder => 'Place HTTP Link Here', :style => 'width:75%'
+      =f.text_field :url, :placeholder => 'Place URL Here', :style => 'width:75%'
       =f.submit 'Add Press'
 .press_text
   -@presses.each do |press|
-    =render :partial => 'about/press_instance', :locals => {:press => press}
+    .press_title
+      -if current_admin
+        =image_tag 'cross24.png',
+                   :class => "delete_#{press.id}",
+                   :style => 'cursor:pointer'
+      =press.name
 
+    .press_link
+      %a{:href => press.url}
+        =press.url
+
+    :javascript
+      $(".delete_#{press.id}").click(function(){
+        if(confirm("Are you sure you want to delete this Article Link?")){
+          $.ajax({
+            url: "/presses/#{press.id}",
+            type: "delete",
+            dataType: "script"
+          });
+        }
+      });
 -if current_admin
   :javascript
     $('.press_init_add').click(function(){

@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   devise_for :admins, :path => '',
              :path_names => {:sign_in => 'admin_login'}
 
-  get 'videos/show'
-
   get 'about/show'
 
   get 'contact/show'
@@ -14,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :bio
   resources :presses
+  resources :videos
 end
