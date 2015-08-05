@@ -22,6 +22,8 @@ gem 'youtube_addy'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'remotipart'
+gem 'puma'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

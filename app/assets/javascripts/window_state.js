@@ -1,5 +1,4 @@
 function pushToHistory(currentLocation) {
-    console.log("setupPush called");
     window.history.pushState({url: currentLocation}, document.title, currentLocation);
     setupPopListener();
 }
