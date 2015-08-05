@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_params, if: :devise_controller?
 
-  after_filter :no_cache
+  after_filter :no_cache, :allow_iframe
 
   protected
 
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = 'Fri, 01 Jan 1990 00:00:00 GMT'
     response.headers['Vary'] = 'Accept'
+  end
+
+  def allow_iframe
+    response.headers.delete 'X-Frame-Options'
   end
 end
