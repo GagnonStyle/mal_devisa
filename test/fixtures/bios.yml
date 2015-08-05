@@ -1,7 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  text: MyText
-
-two:
-  text: MyText
+---
+bios_001:
+  id: 1
+  text: Mal Devisa is a project started by Who'da Funk it's Deja Carr. With driving
+    bass melodies, hypnotizing harmonies and a variety of genres, Carr conjures up
+    a live show one would have to see in order to truly hear
+  created_at: '2015-04-21 03:16:51.346678'
+  updated_at: '2015-05-10 17:56:32.653629'

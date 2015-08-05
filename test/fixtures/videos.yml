@@ -1,9 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  url: MyString
-
-two:
-  name: MyString
-  url: MyString
+---
+videos_001:
+  id: 1
+  name: Everybody Knows
+  url: https://www.youtube.com/watch?v=QYtov617aes
+videos_002:
+  id: 2
+  name: GODS WISDOM
+  url: https://www.youtube.com/watch?v=3gGacNJKJsc
+videos_003:
+  id: 3
+  name: FAT
+  url: https://www.youtube.com/watch?v=WV7HeD61_LY
+videos_004:
+  id: 4
+  name: To Be Unwilling
+  url: https://www.youtube.com/watch?v=S9FbVUre92g
