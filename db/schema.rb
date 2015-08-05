@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501145835) do
+ActiveRecord::Schema.define(version: 20150717032535) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "username",               default: "", null: false
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20150501145835) do
 
   create_table "bios", force: :cascade do |t|
     t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

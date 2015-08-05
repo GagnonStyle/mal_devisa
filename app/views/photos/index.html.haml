@@ -1,0 +1,45 @@
+.subtitle
+  GALLERY
+  -if current_admin
+    .icons
+      .photo_init_add
+        =image_tag 'plus24.png', :style => 'cursor:pointer'
+      .photo_cancel_add{:style => 'display:none'}
+        =image_tag 'cross24.png', :style => 'cursor:pointer'
+-if current_admin
+  .photo_add_form{:style => 'display:none'}
+    =form_for Photo.new, remote: true do |f|
+      =f.text_field :name, :placeholder => 'Name'
+      =f.file_field :image
+      =f.submit 'Add Photo'
+
+.photo_grid
+  -@photos.each do |photo|
+    =link_to image_tag(photo.image_url(:thumb).to_s), photo.image_url.to_s, :target => '_blank'
+    -if current_admin
+      =image_tag 'cross24.png',
+                  :class => "delete_#{photo.id}",
+                  :style => 'cursor:pointer'
+      :javascript
+        $(".delete_#{photo.id}").click(function(){
+          if(confirm("Are you sure you want to delete this Photo?")){
+            $.ajax({
+              url: "#{photo_path(photo.id)}",
+              type: "delete",
+              dataType: "script"
+            });
+          }
+        });
+
+-if current_admin
+  :javascript
+    $('.photo_init_add').click(function(){
+      $('.photo_add_form').show();
+      $('.photo_init_add').hide();
+      $('.photo_cancel_add').show();
+    });
+    $('.photo_cancel_add').click(function(){
+      $('.photo_add_form').hide();
+      $('.photo_cancel_add').hide();
+      $('.photo_init_add').show();
+    });

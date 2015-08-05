@@ -6,11 +6,10 @@ Rails.application.routes.draw do
 
   get 'contact/show'
 
-  get 'gallery/index'
-
   root to: 'visitors#index'
 
   resources :bio
   resources :presses
   resources :videos
+  resources :photos
 end

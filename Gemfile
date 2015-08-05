@@ -19,6 +19,9 @@ gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'devise'
 gem 'youtube_addy'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'remotipart'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
