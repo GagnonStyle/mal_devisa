@@ -19,7 +19,7 @@
         =image_tag 'cross24.png',
                    :class => "delete_#{video.id}",
                    :style => 'cursor:pointer'
-      =YouTubeAddy.youtube_embed_url(video.url, 420, 315, :ssh => true).html_safe
+      =YouTubeAddy.youtube_embed_url(video.url, 420, 315, :ssl => true).html_safe
       :javascript
         $(".delete_#{video.id}").click(function(){
           if(confirm("Are you sure you want to delete this Video?")){
