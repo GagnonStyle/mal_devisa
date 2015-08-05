@@ -18,7 +18,7 @@ gem 'pg'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'devise'
-gem 'youtube_addy'
+gem 'youtube_addy', :git => 'https://github.com/GagnonStyle/youtube_addy.git'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'remotipart'
