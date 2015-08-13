@@ -19,22 +19,21 @@
         =image_tag 'cross24.png',
                    :class => "delete_#{press.id}",
                    :style => 'cursor:pointer'
+        :javascript
+          $(".delete_#{press.id}").click(function(){
+            if(confirm("Are you sure you want to delete this Article Link?")){
+              $.ajax({
+                url: "/presses/#{press.id}",
+                type: "delete",
+                dataType: "script"
+              });
+            }
+          });
       =press.name
 
     .press_link
       %a{:href => press.url}
         =press.url
-
-    :javascript
-      $(".delete_#{press.id}").click(function(){
-        if(confirm("Are you sure you want to delete this Article Link?")){
-          $.ajax({
-            url: "/presses/#{press.id}",
-            type: "delete",
-            dataType: "script"
-          });
-        }
-      });
 -if current_admin
   :javascript
     $('.press_init_add').click(function(){

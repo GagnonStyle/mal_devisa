@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :presses
   resources :videos
   resources :photos
+  resources :news
 end

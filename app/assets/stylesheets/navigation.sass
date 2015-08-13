@@ -1,6 +1,10 @@
 .social_bar
   background: black
+  width: 100%
+  height: 50px
   position: relative
+  @media screen and (max-width: 600px)
+    height: 100px
   .logout_link a
     position: relative
     float: left
@@ -14,9 +18,17 @@
     text-decoration: none
     transition: background 100ms
   .music_player
+    float: left
     display: inline-block
     margin-top: 4px
     margin-left: 5px
+    margin-right: 5px
+    @media screen and (max-width: 600px)
+      margin: 4px 5px
+      width: 100%
+      iframe
+        display: block
+        margin: auto
   .social_link
     color: lightgray
     padding: 0.625em

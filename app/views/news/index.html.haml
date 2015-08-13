@@ -1,0 +1,47 @@
+.subtitle
+  NEWS + UPDATES
+  -if current_admin
+    .icons
+      .news_init_add
+        =image_tag 'plus24.png', :style => 'cursor:pointer'
+      .news_cancel_add{:style => 'display:none'}
+        =image_tag 'cross24.png', :style => 'cursor:pointer'
+-if current_admin
+  .news_add_form{:style => 'display:none'}
+    =form_for News.new, remote: true do |f|
+      =f.text_field :title, :placeholder => 'Title'
+      =f.text_area :body, :placeholder => 'Write your news here...'
+      =f.submit 'Add News'
+-@news.each do |n|
+  %div{:id => "news_#{n.id}"}
+    .news_title
+      =n.title
+      -if current_admin
+        =image_tag 'cross24.png',
+                   :class => "delete_#{n.id}",
+                   :style => 'cursor:pointer'
+        :javascript
+          $(".delete_#{n.id}").click(function(){
+            if(confirm("Are you sure you want to delete this update?")){
+              $.ajax({
+                url: "/news/#{n.id}",
+                type: "delete",
+                dataType: "script"
+              });
+            }
+          });
+    .news_body
+      =simple_format n.body
+
+-if current_admin
+  :javascript
+    $('.news_init_add').click(function(){
+      $('.news_add_form').show();
+      $('.news_init_add').hide();
+      $('.news_cancel_add').show();
+    });
+    $('.news_cancel_add').click(function(){
+      $('.news_add_form').hide();
+      $('.news_cancel_add').hide();
+      $('.news_init_add').show();
+    });
